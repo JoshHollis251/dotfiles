@@ -14,6 +14,16 @@ return {
           hidden = true,  -- Include hidden files
         })
       end, {})
+
+      --telescope live grep in a specific directory
+      vim.api.nvim_create_user_command('TelescopeGrepDir', function()
+        local input_dir = vim.fn.input('Enter directory: ')
+        builtin.live_grep({
+          search_dirs = { input_dir },
+          hidden = true,  -- Include hidden files
+        })
+      end, {})
+
       --End custom commands
 
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find files" })
@@ -22,7 +32,9 @@ return {
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "find buffers" })
       vim.keymap.set('n', '<leader>fm', builtin.man_pages, { desc = "man pages" })
       vim.keymap.set('n', '<leader>fs', builtin.search_history, { desc = "search history" })
-      vim.keymap.set('n', '<leader>fd', ':TelescopeDir<CR>', { noremap = true, silent = true, desc = "Find Files in Directory" })
+      vim.keymap.set('n', '<leader>fF', ':TelescopeDir<CR>', { noremap = true, silent = true, desc = "Find Files in Directory" })
+      --add a custom command to live grep in a specific directory
+      vim.keymap.set('n', '<leader>fG', ':TelescopeGrepDir<CR>', {noremap = true, silent = true, desc = "live grep in directory" })
     end
   },
   {
