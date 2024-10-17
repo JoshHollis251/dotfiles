@@ -15,4 +15,16 @@ return {
       })
     end
   },
-}
+  --add an extension for C and C++ autocomplete
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require"lsp_signature".setup({
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "single"
+        }
+      })
+    end
+  },
+ }
