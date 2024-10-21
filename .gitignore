@@ -1,0 +1,12 @@
+#ignore everything but the nvim directory, .git ignore and tmux directory
+/*
+!.gitignore
+
+!nvim/
+nvim/.luarc.json
+nvim/lazy-lock.json
+
+!tmux/
+#also ignore nvim/lazy_lock
+```
+
