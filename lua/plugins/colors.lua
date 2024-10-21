@@ -16,11 +16,19 @@ return {
       local conf = require("kanagawa")
       conf.setup({
         background = {
-          dark = "dragon",
           light = "lotus",
         }
       })
-      vim.cmd.colorscheme "kanagawa"
+    end
+  },
+  {
+    "tomasiser/vim-code-dark",
+    lazy = false,
+    name = "code-dark",
+    priority = 1002,
+    config = function()
+      vim.g.code_dark_style = "dark"
+      vim.cmd.colorscheme "codedark"
     end
   }
 }

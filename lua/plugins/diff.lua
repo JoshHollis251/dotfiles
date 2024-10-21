@@ -8,8 +8,8 @@ return {
         width = 35,
         height = 10,
       },
-      vim.keymap.set('n', '<leader>dp', ':DiffviewOpen<CR>', {}),
-
+      vim.keymap.set('n', '<leader>do', ':DiffviewOpen<CR>', {}),
+      vim.keymap.set('n', '<leader>dc', ':DiffviewClose<CR>', {}),
     })
   end,
 }
