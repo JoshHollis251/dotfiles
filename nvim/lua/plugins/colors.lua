@@ -5,6 +5,7 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
+      vim.cmd.colorscheme "catppuccin"
     end
   },
   {
@@ -27,8 +28,6 @@ return {
     name = "code-dark",
     priority = 1002,
     config = function()
-      vim.g.code_dark_style = "dark"
-      vim.cmd.colorscheme "codedark"
     end
   }
 }
