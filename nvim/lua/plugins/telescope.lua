@@ -36,6 +36,7 @@ return {
         { noremap = true, silent = true, desc = "Find Files in Directory" })
       vim.keymap.set('n', '<leader>fG', ':TelescopeGrepDir<CR>',
         { noremap = true, silent = true, desc = "live grep in directory" })
+      vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "find symbols" })
     end
   },
   {
