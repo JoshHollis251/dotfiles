@@ -16,6 +16,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require("lspconfig")
 
       -- Boilerplate keybindings for nvim-lspconfig
@@ -49,8 +50,14 @@ return {
       end
 
       -- Setup LSP servers with the on_attach function
-      lspconfig.lua_ls.setup({ on_attach = on_attach })
-      lspconfig.clangd.setup({ on_attach = on_attach })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+      })
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+      })
     end
   }
 }
