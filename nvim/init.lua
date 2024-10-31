@@ -19,5 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 -- Setup lazy.nvim
+-- include the lua/tasks/ directory
+require("tasks/tasks")
 require("options")
 require("lazy").setup("plugins")

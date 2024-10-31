@@ -33,6 +33,7 @@ return {
         buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)    -- Go to implementation
         buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)        -- List references
         buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)              -- Show hover information
+        buf_set_keymap("n", "<leader>ch", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) -- Show signature help
         buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)    -- Rename symbol
         buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- Show code actions
         buf_set_keymap("n", "<leader>F", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts) -- Format document
