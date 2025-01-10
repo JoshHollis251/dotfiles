@@ -40,7 +40,7 @@ return {
         buf_set_keymap("n", "<leader>ds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts) -- List document symbols
         buf_set_keymap("n", "<leader>ws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts) -- List workspace symbols
         buf_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- Show diagnostics
-        buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)       -- Go to previous diagnostic
+        buf_set_keymap("n", "<leader>sd", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)       -- Go to previous diagnostic
         buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)       -- Go to next diagnostic
         buf_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- Set location list with diagnostics
 
@@ -56,6 +56,17 @@ return {
         on_attach = on_attach
       })
       lspconfig.clangd.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        cmd = {
+          "clangd",
+          "--query-driver=/grmn/prj/mrn/**/*",
+          "--background-index",
+          "--suggest-missing-includes"
+        }, -- Start clangd with additional flags
+        filetypes = { "c", "cpp", "objc", "objcpp" }, -- File types to support
+      })
+      lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
         on_attach = on_attach
       })
